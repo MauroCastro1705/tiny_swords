@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://b1r0fj1vmumyh"]
+
+[ext_resource type="Script" uid="uid://bk5pwhs8db3ts" path="res://managers/WaveData.gd" id="1_0pg30"]
+
+[resource]
+script = ExtResource("1_0pg30")
+total_enemies = 15
+metadata/_custom_type_script = "uid://bk5pwhs8db3ts"

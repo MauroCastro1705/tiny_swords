@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://desbo60wvpx7g"]
+
+[ext_resource type="Texture2D" uid="uid://cyy4mipbh4e4i" path="res://Tiny Swords/Tiny Swords (Free Pack)/Buildings/Blue Buildings/Castle.png" id="1_onuyr"]
+[ext_resource type="Script" uid="uid://dlrrt3chuxbpi" path="res://unidades/player_base/player_base.gd" id="1_plbj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plbj8"]
+size = Vector2(156, 78)
+
+[node name="PlayerBase" type="CharacterBody2D" unique_id=1485811820 groups=["estructura"]]
+collision_mask = 0
+script = ExtResource("1_plbj8")
+max_health = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166194958]
+position = Vector2(409, 301)
+shape = SubResource("RectangleShape2D_plbj8")
+
+[node name="Castle" type="Sprite2D" parent="." unique_id=970346353]
+position = Vector2(409, 278)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_onuyr")

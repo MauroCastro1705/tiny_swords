@@ -1,0 +1,52 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="tiny warriors"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://0apmfivg3w8g"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://Tiny Swords/": "green",
+"res://enemigos/": "red",
+"res://managers/": "orange"
+}
+
+[global_group]
+
+ally="unidades aliadas"
+enemigos="enemigos que hacen daño"
+estructura="recibe el daño de los enemigos"
+
+[layer_names]
+
+2d_physics/layer_2="enemigos"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"

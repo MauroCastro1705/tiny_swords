@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bi1pr2ykwj6uh"]
+
+[ext_resource type="Script" uid="uid://df6yx4ceko8is" path="res://MAIN/main_scene.gd" id="1_bvruv"]
+[ext_resource type="PackedScene" uid="uid://b6ucpsgavxu6p" path="res://managers/enemy_spawner.tscn" id="2_7dttm"]
+[ext_resource type="PackedScene" uid="uid://desbo60wvpx7g" path="res://unidades/player_base/player_base.tscn" id="3_sxh1v"]
+
+[node name="main_scene" type="Node2D" unique_id=2052820653]
+script = ExtResource("1_bvruv")
+
+[node name="EnemySpawner" parent="." unique_id=1795319313 node_paths=PackedStringArray("target_node", "enemies_container") instance=ExtResource("2_7dttm")]
+target_node = NodePath("../Marker2D")
+enemies_container = NodePath("..")
+time_between_waves = 30.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=323209242]
+position = Vector2(422, 316)
+
+[node name="PlayerBase" parent="." unique_id=906632236 instance=ExtResource("3_sxh1v")]

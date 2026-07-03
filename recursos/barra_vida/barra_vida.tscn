@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://wsmobwchrhwp"]
+
+[ext_resource type="Script" uid="uid://bu4fupbcgslak" path="res://recursos/barra_vida/barra_vida.gd" id="1_xghw6"]
+[ext_resource type="Texture2D" uid="uid://d3i4mgpovn7xb" path="res://Tiny Swords/UI/Bars/barra2.png" id="2_xghw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xghw6"]
+bg_color = Color(1, 0.24313726, 0.24313726, 1)
+
+[node name="BarraVida" type="Node2D" unique_id=1633873780]
+script = ExtResource("1_xghw6")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1953909257]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 89.0
+offset_bottom = 9.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/fill = SubResource("StyleBoxFlat_xghw6")
+value = 50.0
+show_percentage = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1820634564]
+offset_right = 104.0
+offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+nine_patch_stretch = true
+texture_over = ExtResource("2_xghw6")

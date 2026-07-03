@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6ucpsgavxu6p"]
+
+[ext_resource type="Script" uid="uid://rbxyovkg5t2i" path="res://managers/enemy_spawner.gd" id="1_db1wk"]
+[ext_resource type="PackedScene" uid="uid://cf4ut6em7twhl" path="res://enemigos/goblin_torch/goblin_torch.tscn" id="2_io2ap"]
+[ext_resource type="Script" uid="uid://bk5pwhs8db3ts" path="res://managers/WaveData.gd" id="3_c57rk"]
+[ext_resource type="Resource" uid="uid://b1r0fj1vmumyh" path="res://managers/WaveData.tres" id="4_64jdb"]
+
+[sub_resource type="Resource" id="Resource_j6m74"]
+script = ExtResource("3_c57rk")
+enemy_indices = Array[int]([0])
+metadata/_custom_type_script = "uid://bk5pwhs8db3ts"
+
+[node name="EnemySpawner" type="Node2D" unique_id=1795319313 node_paths=PackedStringArray("enemies_container")]
+script = ExtResource("1_db1wk")
+enemy_scenes = Array[PackedScene]([ExtResource("2_io2ap")])
+start_on_ready = false
+enemies_container = NodePath(".")
+waves = Array[ExtResource("3_c57rk")]([SubResource("Resource_j6m74"), ExtResource("4_64jdb")])
