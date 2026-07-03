@@ -7,6 +7,7 @@ signal died
 @onready var goblin_sprite: AnimatedSprite2D = $goblin_sprite
 #new animations = "die" and "disapear"
 @onready var click_dmg: AnimatedSprite2D = $click_dmg
+@onready var recibir_dmg: Button = $recibir_dmg
 
 @export var speed: float = 100.0
 @export var attack_damage: float = 10.0
@@ -24,6 +25,7 @@ var cooldown_timer: Timer
 # Nuevas variables para controlar estados
 var is_dead: bool = false
 var is_disappearing: bool = false
+var has_dealt_damage: bool = false  # Para evitar daño múltiple
 
 
 func _ready() -> void:
@@ -51,10 +53,10 @@ func _setup_timers():
 	cooldown_timer.timeout.connect(_on_cooldown_timeout)
 	add_child(cooldown_timer)
 	
-	# Timer para duración de ataque
+	# Timer para duración de ataque - AUMENTADO para que la animación tenga tiempo
 	attack_timer = Timer.new()
 	attack_timer.one_shot = true
-	attack_timer.wait_time = 0.3  # Duración del ataque
+	attack_timer.wait_time = 0.8  # Aumentado de 0.3 a 0.8 segundos
 	attack_timer.timeout.connect(_on_attack_timeout)
 	add_child(attack_timer)
 
@@ -108,7 +110,6 @@ func _check_collisions():
 		
 		# Verificar si el collider es una estructura
 		if collider and collider.is_in_group("estructura"):
-			print("Goblin colisionó con estructura: ", collider.name)
 			# Si colisiona, atacar
 			if can_attack and not is_attacking:
 				_start_attack_with_target(collider)
@@ -121,6 +122,7 @@ func _start_attack():
 	_start_attack_with_target(target)
 
 
+@warning_ignore("unused_parameter")
 func _start_attack_with_target(target_node: Node2D):
 	"""Inicia ataque contra un target específico"""
 	if is_attacking or not can_attack:
@@ -128,12 +130,10 @@ func _start_attack_with_target(target_node: Node2D):
 	
 	is_attacking = true
 	can_attack = false
+	has_dealt_damage = false  # Resetear flag de daño
 	
 	# Reproducir animación de ataque
 	_update_animation("attack")
-	
-	# Aplicar daño inmediatamente (o después de un pequeño delay)
-	_deal_damage(target_node)
 	
 	# Iniciar timer para terminar el ataque
 	attack_timer.start()
@@ -142,6 +142,12 @@ func _start_attack_with_target(target_node: Node2D):
 func _on_attack_timeout():
 	"""Termina la animación de ataque"""
 	is_attacking = false
+	
+	# Si no se ha aplicado daño aún, aplicarlo ahora (por si acaso)
+	if not has_dealt_damage and target and is_instance_valid(target):
+		_deal_damage(target)
+		has_dealt_damage = true
+	
 	# Volver a idle
 	_update_animation("idle")
 	# Iniciar cooldown
@@ -155,8 +161,13 @@ func _on_cooldown_timeout():
 
 func _deal_damage(target_node: Node2D):
 	"""Aplica daño a la estructura"""
+	if has_dealt_damage:
+		return  # Evitar daño múltiple
+	
 	if not target_node or not is_instance_valid(target_node):
 		return
+	
+	has_dealt_damage = true
 	
 	print("Goblin atacando a: ", target_node.name)
 	
@@ -212,7 +223,11 @@ func _on_animation_finished():
 			queue_free()
 		# Si terminó la animación de ataque
 		elif goblin_sprite.animation == "attack":
-			pass
+			# Aplicar daño en el momento exacto que termina la animación
+			if not has_dealt_damage and target and is_instance_valid(target):
+				_deal_damage(target)
+			# Nota: El attack_timer también manejará el fin del ataque
+			# pero esto asegura que el daño se aplique incluso si el timer falla
 
 
 # ============================================================
@@ -241,6 +256,8 @@ func die():
 	
 	# Reproducir animación de muerte
 	_update_animation("die")
+	recibir_dmg.hide()
+	recibir_dmg.disabled = true
 	barra_vida.hide()
 	
 	# Detener movimiento

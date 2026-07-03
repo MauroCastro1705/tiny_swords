@@ -9,7 +9,7 @@ size = Vector2(156, 78)
 [node name="PlayerBase" type="CharacterBody2D" unique_id=1485811820 groups=["estructura"]]
 collision_mask = 0
 script = ExtResource("1_plbj8")
-max_health = 500.0
+max_health = 500000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166194958]
 position = Vector2(409, 301)

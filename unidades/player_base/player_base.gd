@@ -3,14 +3,15 @@ class_name Estructura
 
 signal destroyed
 
-@export var max_health: float = 100.0
-@export var health: float = 100.0
+@export var max_health: float
+@export var health: float
 @export var destruction_effect: PackedScene
 
 
 
 
 func _ready() -> void:
+	health = max_health
 	# Agregar al grupo "estructura" para que los enemigos la detecten
 	add_to_group("estructura")
 	

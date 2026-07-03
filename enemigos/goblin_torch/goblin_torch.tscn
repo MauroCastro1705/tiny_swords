@@ -275,7 +275,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glaev"]
-radius = 17.262676
+radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am7kx"]
 radius = 18.027756
@@ -677,19 +677,23 @@ animations = [{
 
 [node name="goblin_torch" type="CharacterBody2D" unique_id=381793033 groups=["enemigos"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_glaev")
+speed = 50.0
+attack_cooldown_time = 5.0
 
 [node name="goblin_sprite" type="AnimatedSprite2D" parent="." unique_id=1134085482]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.41666666, 0.41666666)
 sprite_frames = SubResource("SpriteFrames_gq0bx")
-animation = &"die"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983846912]
 shape = SubResource("CircleShape2D_glaev")
 
 [node name="BarraVida" parent="." unique_id=1633873780 instance=ExtResource("3_am7kx")]
-position = Vector2(-25, -33)
+position = Vector2(-17, -32)
+scale = Vector2(0.64, 0.64)
 current_health = 30.0
 
 [node name="recibir_dmg" type="Button" parent="." unique_id=2111522765]
