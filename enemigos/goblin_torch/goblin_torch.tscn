@@ -675,7 +675,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="goblin_torch" type="CharacterBody2D" unique_id=381793033 groups=["enemigos"]]
+[node name="goblin_torch" type="CharacterBody2D" unique_id=381793033 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_glaev")
@@ -698,10 +698,10 @@ current_health = 30.0
 
 [node name="recibir_dmg" type="Button" parent="." unique_id=2111522765]
 modulate = Color(1, 1, 1, 0)
-offset_left = -30.0
-offset_top = -29.0
-offset_right = 32.0
-offset_bottom = 29.0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 13.0
+offset_bottom = 11.0
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=562501240]
 

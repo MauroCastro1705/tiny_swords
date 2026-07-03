@@ -8,11 +8,13 @@ signal died
 #new animations = "die" and "disapear"
 @onready var click_dmg: AnimatedSprite2D = $click_dmg
 @onready var recibir_dmg: Button = $recibir_dmg
+@export var money_when_die:int = 8
 
 @export var speed: float = 100.0
 @export var attack_damage: float = 10.0
 @export var attack_cooldown_time: float = 1.0
 @export var attack_range: float = 50.0
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var max_health: float
 var current_health: float
@@ -188,8 +190,6 @@ func _deal_damage(target_node: Node2D):
 	if structure.has_method("take_damage"):
 		structure.take_damage(attack_damage)
 		print("Daño aplicado: ", attack_damage)
-	else:
-		print("La estructura no tiene método take_damage")
 
 
 func _update_animation(animation_name: String):
@@ -252,7 +252,11 @@ func die():
 		return
 	
 	is_dead = true
+	collision_shape_2d.disabled = true
+	Global.player_coins += money_when_die
+	Global.emit_signal("update_things")
 	died.emit()
+	
 	
 	# Reproducir animación de muerte
 	_update_animation("die")

@@ -35,8 +35,8 @@ folder_colors={
 [global_group]
 
 ally="unidades aliadas"
-enemigos="enemigos que hacen daño"
 estructura="recibe el daño de los enemigos"
+enemy="enemigos que hacen daño"
 
 [layer_names]
 

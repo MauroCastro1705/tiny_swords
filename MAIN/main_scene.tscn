@@ -11,9 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bd6x7vv7pyair" path="res://Tiny Swords/Terrain/Decorations/Rocks in the Water/Water Rocks_04.png" id="8_lee0j"]
 [ext_resource type="Texture2D" uid="uid://7lkgw6emw374" path="res://Tiny Swords/Terrain/Decorations/Rocks in the Water/Water Rocks_01.png" id="10_cv8nh"]
 [ext_resource type="Texture2D" uid="uid://pw0lyvioabet" path="res://Tiny Swords/Terrain/Decorations/Bushes/Bushe1.png" id="11_cv8nh"]
+[ext_resource type="Script" uid="uid://bk5pwhs8db3ts" path="res://managers/WaveData.gd" id="12_pe2j2"]
 [ext_resource type="Texture2D" uid="uid://c2q1srqtqskqs" path="res://Tiny Swords/Terrain/Decorations/Bushes/Bushe3.png" id="12_yyuoa"]
+[ext_resource type="Resource" uid="uid://b1r0fj1vmumyh" path="res://managers/WaveData.tres" id="13_p233f"]
 [ext_resource type="PackedScene" uid="uid://wkutsxxeco25" path="res://UI elements/coin_box/coin_box.tscn" id="13_r76bv"]
 [ext_resource type="Theme" uid="uid://chf54d065lsee" path="res://UI elements/buton.tres" id="13_y14mg"]
+[ext_resource type="PackedScene" uid="uid://mbi8q671dk1" path="res://unidades/warrior/warrior.tscn" id="15_freo0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1fch"]
 atlas = ExtResource("3_y3fkh")
@@ -881,6 +884,7 @@ autoplay = "new_animation"
 [node name="EnemySpawner" parent="." unique_id=1795319313 node_paths=PackedStringArray("target_node", "enemies_container") instance=ExtResource("2_7dttm")]
 target_node = NodePath("../Marker2D")
 enemies_container = NodePath("..")
+waves = Array[ExtResource("12_pe2j2")]([ExtResource("13_p233f"), ExtResource("13_p233f")])
 time_between_waves = 30.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=323209242]
@@ -903,5 +907,8 @@ offset_left = 639.0
 offset_top = 4.0
 offset_right = 639.0
 offset_bottom = 4.0
+
+[node name="warrior" parent="." unique_id=2100414298 instance=ExtResource("15_freo0")]
+position = Vector2(290, 322)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

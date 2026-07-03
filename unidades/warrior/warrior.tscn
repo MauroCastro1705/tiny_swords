@@ -204,12 +204,12 @@ script = ExtResource("1_812o8")
 [node name="warrior_sprite" type="AnimatedSprite2D" parent="." unique_id=1134085482]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gq0bx")
-animation = &"idle"
+animation = &"attack_2"
 autoplay = "idle"
-frame_progress = 0.5051324
 
 [node name="BarraVida" parent="." unique_id=1633873780 instance=ExtResource("2_vnovy")]
-position = Vector2(-26, -37)
+position = Vector2(-17.000002, -33)
+scale = Vector2(0.6399994, 0.6399994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=667357906]
 shape = SubResource("CircleShape2D_812o8")

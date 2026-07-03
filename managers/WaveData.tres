@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_0pg30")
-total_enemies = 15
+total_enemies = 1
+spawn_interval = 2.0
+enemy_indices = Array[int]([0])
 metadata/_custom_type_script = "uid://bk5pwhs8db3ts"

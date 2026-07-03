@@ -1,4 +1,7 @@
 extends Node
+@warning_ignore("unused_signal")
+signal update_things
+
 var warrior_max_health:float = 100
 var lancer_max_health:float = 130
 var archer_max_health:float = 70
