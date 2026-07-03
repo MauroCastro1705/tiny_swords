@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://7lkgw6emw374" path="res://Tiny Swords/Terrain/Decorations/Rocks in the Water/Water Rocks_01.png" id="10_cv8nh"]
 [ext_resource type="Texture2D" uid="uid://pw0lyvioabet" path="res://Tiny Swords/Terrain/Decorations/Bushes/Bushe1.png" id="11_cv8nh"]
 [ext_resource type="Texture2D" uid="uid://c2q1srqtqskqs" path="res://Tiny Swords/Terrain/Decorations/Bushes/Bushe3.png" id="12_yyuoa"]
+[ext_resource type="PackedScene" uid="uid://wkutsxxeco25" path="res://UI elements/coin_box/coin_box.tscn" id="13_r76bv"]
+[ext_resource type="Theme" uid="uid://chf54d065lsee" path="res://UI elements/buton.tres" id="13_y14mg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1fch"]
 atlas = ExtResource("3_y3fkh")
@@ -888,10 +890,18 @@ position = Vector2(422, 316)
 position = Vector2(1, -6)
 
 [node name="Button" type="Button" parent="." unique_id=1969008990]
-offset_left = 374.0
-offset_top = 145.0
-offset_right = 382.0
-offset_bottom = 153.0
-text = "start"
+offset_left = 371.0
+offset_top = 159.0
+offset_right = 531.0
+offset_bottom = 227.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("13_y14mg")
+text = "Next Wave"
+
+[node name="CoinBox" parent="." unique_id=1125917314 instance=ExtResource("13_r76bv")]
+offset_left = 639.0
+offset_top = 4.0
+offset_right = 639.0
+offset_bottom = 4.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

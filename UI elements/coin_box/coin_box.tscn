@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://wkutsxxeco25"]
+
+[ext_resource type="Script" uid="uid://clldt6lvcg5qq" path="res://UI elements/coin_box/coin_box.gd" id="1_1afq7"]
+[ext_resource type="Texture2D" uid="uid://iry5hbm1xit2" path="res://Tiny Swords/UI/Icons/Icon_03.png" id="1_e2npg"]
+[ext_resource type="Texture2D" uid="uid://du4ywshk80oa5" path="res://Tiny Swords/UI/Banners/Banner_Horizontal.png" id="2_leq0l"]
+[ext_resource type="LabelSettings" uid="uid://cebdlqgm7o1gr" path="res://UI elements/label_basica.tres" id="4_leq0l"]
+
+[node name="CoinBox" type="Control" unique_id=1125917314]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1afq7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1196968628]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 145.0
+offset_bottom = 73.0
+texture = ExtResource("2_leq0l")
+region_rect = Rect2(33, 45, 126, 127)
+patch_margin_left = 26
+patch_margin_top = 22
+patch_margin_right = 27
+patch_margin_bottom = 38
+axis_stretch_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=612884037]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 5.0
+offset_right = 105.0
+offset_bottom = 45.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=449548340]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("1_e2npg")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=2058708562]
+layout_mode = 2
+text = "1264"
+label_settings = ExtResource("4_leq0l")
+horizontal_alignment = 1
+vertical_alignment = 1

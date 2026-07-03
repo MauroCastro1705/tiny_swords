@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cebdlqgm7o1gr"]
+
+[ext_resource type="FontFile" uid="uid://b00h22ltvjbxm" path="res://Tiny Swords/upheavtt.ttf" id="1_xe4va"]
+
+[resource]
+font = ExtResource("1_xe4va")
+font_size = 20
+outline_size = 7
+outline_color = Color(0.08627451, 0.10980392, 0.18039216, 1)
